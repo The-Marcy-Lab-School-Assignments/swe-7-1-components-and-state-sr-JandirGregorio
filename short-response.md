@@ -28,7 +28,7 @@ const Header = () => {
 const Figure = () => {
   return (
     <figure>
-      <img src='picture.jpg'>
+      <img src='picture.jpg' />
       <figcaption>My profile picture!!!</figcaption> 
     </figure>
   )
@@ -41,7 +41,7 @@ const Figure = () => {
 
 A browser cannot run a `.jsx` file directly. Why not? Explain the role of a build step and what it means to "compile" code in simple terms.
 
-**Your answer:** The browser canot run `.jsx` because it only renders `.js` natively. We need to compile or translate the `.jsx` code into `.js` so the browser can run it. **Vite** helps us by compiling and bundling our code into JavaScript.
+**Your answer:** The browser cannot run `.jsx` because it only renders `.js` natively. We need to compile the `.jsx` code into `.js` so the browser can run it. **Vite** helps us by compiling and bundling our code into JavaScript. Compiling means to translate code written for developer convenience and experience into code that the browser can understand.
 
 ---
 
@@ -49,7 +49,7 @@ A browser cannot run a `.jsx` file directly. Why not? Explain the role of a buil
 
 What does `useState` return, and what are the two things you get back from it? Describe how to use those values to render data and to update that data.
 
-**Your answer:** `useState` returns a tuple with a variable with the current state value and a setter function that will change the variable's state. `useState` initializes the state variable to a default value and the setter function will take in a callback to modify/update that data.
+**Your answer:** `useState` returns a tuple with a variable with the current state value and a setter function that will change the variable's state. `useState` initializes the state variable to a default value and the setter function will update that value directly or using a callback function.
 
 ---
 
@@ -57,7 +57,7 @@ What does `useState` return, and what are the two things you get back from it? D
 
 What does it mean to "lift state up," and when is it necessary? Use a concrete example.
 
-**Your answer:** "Lifting state up" means to pass down `props` to child components from a parent component. This is necessary because variables state live within the parent component, namely `App` and the other components need a way to access those states without being declared inside `App`. For instance, if I had a `SelectButton` and the `setIsSelected` state lives in `App`, then I'll need to pass `setIsSelected` to `SelectButton` from `App` for it to reference it and re-render the page accordingly.
+**Your answer:** "Lifting state up" means defining the state in a common parent/ancestor so multiple child components can share it. This process is done through `props`. This is necessary because variable states live within the parent component, namely `App`, and the other components need a way to access those states without them being declared inside `App`. For instance, if I had a `SelectButton` and the `setIsSelected` state lives in `App`, then I'll need to pass `setIsSelected` to `SelectButton` from `App` for it to reference it and re-render the page accordingly.
 
 ---
 
