@@ -8,7 +8,7 @@ Answer each question below. Write in complete sentences (3–5 per answer).
 
 What is a React component, and what is JSX? Explain how JSX differs from plain HTML. Use a brief code example to support your answer.
 
-**Your answer:** A react component is a reusable piece of UI with defined logic. JSX is a syntax extention of JavaScript that React uses to return HTML-like syntax. Opposed to HTML, JSX can return React components by calling them with tags. It can run JS code within brackets `{...}`, and uses different attribute names such as `htmlFor` instead of `for`.
+**Your answer:** A react component is a reusable piece of UI with defined logic. JSX is a syntax extension of JavaScript that React uses to return HTML-like syntax. Opposed to HTML, JSX can return React components by calling them with tags. It can run JS code within brackets `{...}`, and uses different attribute names such as `htmlFor` instead of `for`. However, this syntax is for developer convenience and must be compiled down to JavaScript code before the browser can run it.
 
 ```html
 <main>
@@ -41,7 +41,7 @@ const Figure = () => {
 
 A browser cannot run a `.jsx` file directly. Why not? Explain the role of a build step and what it means to "compile" code in simple terms.
 
-**Your answer:** The browser cannot run `.jsx` because it only renders `.js` natively. We need to compile the `.jsx` code into `.js` so the browser can run it. **Vite** helps us by compiling and bundling our code into JavaScript. Compiling means to translate code written for developer convenience and experience into code that the browser can understand.
+**Your answer:** The browser cannot run `.jsx` because it only interprets `.js` natively. **Vite** helps us by compiling and bundling the `.jsx` code into JavaScript by running `npm run build` in the terminal. This produces a compact and optimized production `.js` file for the browser to run. Compiling means to translate code written for developer convenience and experience into code that the browser can understand.
 
 ---
 
@@ -49,7 +49,7 @@ A browser cannot run a `.jsx` file directly. Why not? Explain the role of a buil
 
 What does `useState` return, and what are the two things you get back from it? Describe how to use those values to render data and to update that data.
 
-**Your answer:** `useState` returns a tuple with a variable with the current state value and a setter function that will change the variable's state. `useState` initializes the state variable to a default value and the setter function will update that value directly or using a callback function.
+**Your answer:** `useState` returns a tuple with a variable with the current state value and a setter function that will change the variable's state. `useState` initializes the state variable to a default value and the setter function will update it to a new value by passing it as an argument or using a callback function. When the setter is called to change the state, a re-render will be triggered and React will replace the old value with the new state.
 
 ---
 
@@ -57,7 +57,7 @@ What does `useState` return, and what are the two things you get back from it? D
 
 What does it mean to "lift state up," and when is it necessary? Use a concrete example.
 
-**Your answer:** "Lifting state up" means defining the state in a common parent/ancestor so multiple child components can share it. This process is done through `props`. This is necessary because variable states live within the parent component, namely `App`, and the other components need a way to access those states without them being declared inside `App`. For instance, if I had a `SelectButton` and the `setIsSelected` state lives in `App`, then I'll need to pass `setIsSelected` to `SelectButton` from `App` for it to reference it and re-render the page accordingly.
+**Your answer:** "Lifting state up" means defining the state in a common parent/ancestor so other children components can use the same piece of data. This is necessary because sibling components cannot communicate direclty. Therefore, the state is moved up to their closest ancestor, which then passes it down as props. For instance, if an `AddMediaForm` and a `MediaItem` need to reference the same state, then the state should live in their most common ancestor, in this case `App`.
 
 ---
 
